@@ -13,8 +13,7 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
     exit 1
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
-BUILD_DIR="$APP_BASE"
-APP_DIR="$APP_BASE"
+APP_DIR="$APP_DIR/$APP_BASE"
 
 # legacy buildpack uses $STACK 
 export STACK=$CNB_STACK_ID

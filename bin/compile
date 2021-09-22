@@ -13,13 +13,13 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
     exit 1
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
-BUILD_DIR="$APP_BASE"
+BUILD_DIR="$BUILD_DIR/$APP_BASE"
 
-echo "Using $APP_BASE"
+echo "Using $BUILD_DIR"
 echo "pwd:"
 pwd
 echo "dir:"
-dir "$APP_BASE"
+dir "$BUILD_DIR"
 
 
 source "$BIN_DIR/support/bash_functions.sh"
