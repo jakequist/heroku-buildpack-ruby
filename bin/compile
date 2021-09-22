@@ -14,9 +14,9 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 APP_DIR="$BUILD_DIR/$APP_BASE"
-echo "Using APP_DIR: $APP_DIR" 
-cd $APP_DIR 
-ls
+# echo "Using APP_DIR: $APP_DIR" 
+# cd $APP_DIR 
+# ls
 
 
 source "$BIN_DIR/support/bash_functions.sh"
