@@ -3,6 +3,9 @@ require "language_pack/ruby"
 
 class LanguagePack::NoLockfile < LanguagePack::Ruby
   def self.use?
+    p "a1"
+    p Dir.pwd
+    p Dir.entries(".")
     !File.exists?("Gemfile.lock")
   end
 
