@@ -15,6 +15,11 @@ fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 BUILD_DIR="$APP_BASE"
 
+echo "Using $APP_BASE"
+echo "dir:"
+dir "$APP_BASE"
+
+
 source "$BIN_DIR/support/bash_functions.sh"
 heroku_buildpack_ruby_install_ruby "$BIN_DIR" "$BUILDPACK_DIR"
 
