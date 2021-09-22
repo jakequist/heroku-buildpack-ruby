@@ -16,6 +16,8 @@ APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 BUILD_DIR="$APP_BASE"
 
 echo "Using $APP_BASE"
+echo "pwd:"
+pwd
 echo "dir:"
 dir "$APP_BASE"
 
