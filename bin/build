@@ -8,6 +8,14 @@ APP_DIR=$(pwd)
 BIN_DIR=$(cd $(dirname $0); pwd)
 BUILDPACK_DIR=$(dirname $BIN_DIR)
 
+if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
+    echo "APP_BASE was not set. Aborting" | indent
+    exit 1
+fi
+APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
+BUILD_DIR="$APP_BASE"
+APP_DIR="$APP_BASE"
+
 # legacy buildpack uses $STACK 
 export STACK=$CNB_STACK_ID
 
