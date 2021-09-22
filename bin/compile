@@ -13,13 +13,16 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
     exit 1
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
-BUILD_DIR="$BUILD_DIR/$APP_BASE"
-cd "BUILD_DIR"
+APP_DIR="$BUILD_DIR/$APP_BASE"
+echo "Using APP_DIR: $APP_DIR" 
+cd $APP_DIR 
+ls
+
 
 source "$BIN_DIR/support/bash_functions.sh"
 heroku_buildpack_ruby_install_ruby "$BIN_DIR" "$BUILDPACK_DIR"
 
-if detect_needs_java "$BUILD_DIR"; then
+if detect_needs_java "$APP_DIR"; then
   cat <<EOM
 
        ## Warning: Your app needs java
@@ -33,7 +36,7 @@ if detect_needs_java "$BUILD_DIR"; then
 
 EOM
 
-  compile_buildpack_v2 "$BUILD_DIR" "$CACHE_DIR" "$ENV_DIR" "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz" "heroku/jvm"
+  compile_buildpack_v2 "$APP_DIR" "$CACHE_DIR" "$ENV_DIR" "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz" "heroku/jvm"
 fi
 
 $heroku_buildpack_ruby_dir/bin/ruby $BIN_DIR/support/ruby_compile $@
