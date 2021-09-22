@@ -9,7 +9,7 @@ BIN_DIR=$(cd $(dirname $0); pwd)
 BUILDPACK_DIR=$(dirname $BIN_DIR)
 
 if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
-    echo "APP_BASE was not set. Aborting" | indent
+    echo "APP_BASE was not set. Aborting"
     exit 1
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
