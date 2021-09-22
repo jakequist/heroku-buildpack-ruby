@@ -39,4 +39,4 @@ EOM
   compile_buildpack_v2 "$APP_DIR" "$CACHE_DIR" "$ENV_DIR" "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz" "heroku/jvm"
 fi
 
-$heroku_buildpack_ruby_dir/bin/ruby $BIN_DIR/support/ruby_compile $@
+$heroku_buildpack_ruby_dir/bin/ruby $BIN_DIR/support/ruby_compile $APP_DIR $2 $3 
